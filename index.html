@@ -336,6 +336,20 @@ footer{
 .links a { color:var(--accent1); font-size:0.84rem; font-weight:500; display:flex; align-items:center; gap:5px; transition:opacity 0.2s; }
 .links a:hover { opacity:0.75; }
 
+
+/* ===== FORCE DARK IN PDF/PRINT ===== */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  body {
+    background: #0d1117 !important;
+    color: #e6edf3 !important;
+  }
+}
+
 </style>
 </head>
 
