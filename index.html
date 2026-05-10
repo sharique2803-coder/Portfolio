@@ -1,797 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mohammad Sharique | Portfolio</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-<style>
-/* ===== THEME ===== */
-:root{
-  --bg:#0d1117;
-  --bg2:#161b22;
-  --text:#e6edf3;
-  --muted:#8b949e;
-  --card:rgba(255,255,255,0.05);
-  --border:rgba(255,255,255,0.1);
-  --accent1:#6366f1;
-  --accent2:#22d3ee;
-  --shadow:0 8px 32px rgba(0,0,0,0.6);
-}
-
-
-/* ===== BASE ===== */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background: radial-gradient(ellipse 80% 50% at 20% -10%, rgba(99,102,241,.18), transparent), radial-gradient(ellipse 60% 40% at 80% 110%, rgba(34,211,238,.12), transparent), var(--bg);
-}
-
-/* ===== NAV ===== */
-nav{
-  position:sticky; top:0; z-index:50;
-  backdrop-filter: blur(10px);
-  background: rgba(13,17,23,0.85);
-  border-bottom:1px solid var(--border);
-}
-.nav-inner{
-  max-width:1100px; margin:auto; padding:12px 16px;
-  display:flex; align-items:center; justify-content:space-between;
-}
-.brand{font-weight:700; letter-spacing:.5px}
-.nav-links{display:flex; gap:18px}
-.nav-links a{
-  text-decoration:none; color:var(--text); opacity:.9; font-weight:500;
-}
-.nav-links a.active, .nav-links a:hover{
-  color:var(--accent1);
-}
-.toggle{
-  cursor:pointer; border:1px solid var(--border);
-  padding:6px 10px; border-radius:999px;
-}
-
-/* ===== HERO ===== */
-header{
-  max-width:1100px; margin:0 auto; padding:90px 16px 40px;
-  display:grid; gap:18px; text-align:center;
-}
-.title{
-  font-size:44px; font-weight:700; letter-spacing:.3px;
-}
-.title span{ color:#4f46e5; }
-.subtitle{color:var(--muted)}
-.type{
-  font-size:18px; color:var(--accent1); min-height:28px;
-}
-.cta{
-  margin-top:10px;
-}
-.btn{
-  display:inline-block; text-decoration:none; color:#020617;
-  background:linear-gradient(45deg,var(--accent1),var(--accent2));
-  padding:12px 22px; border-radius:999px; font-weight:600;
-  box-shadow: var(--shadow);
-}
-.btn.ghost{
-  background:transparent; color:var(--text);
-  border:1px solid var(--border); margin-left:10px;
-}
-
-/* ===== SECTIONS ===== */
-section{max-width:1100px; margin:0 auto; padding:70px 16px}
-h2{
-  text-align:center; margin:0 0 28px;
-  font-size:28px; letter-spacing:.4px;
-}
-.section-desc{
-  text-align:center; color:var(--muted); margin-bottom:30px;
-}
-
-/* ===== GRID & CARDS ===== */
-.grid{
-  display:grid; gap:20px;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-}
-.card{
-  padding:20px; border-radius:16px;
-  background:var(--card);
-  border:1px solid var(--border);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
-  transition: transform .35s ease, box-shadow .35s ease, background .35s ease;
-}
-.card:hover{
-  transform: translateY(-10px) scale(1.02);
-}
-
-/* ===== SKILL BARS ===== */
-.skill{
-  margin-bottom:16px;
-}
-.skill .row{
-  display:flex; justify-content:space-between; margin-bottom:6px;
-  font-size:14px; color:var(--muted);
-}
-.bar{
-  height:10px; border-radius:999px;
-  background:rgba(255,255,255,.1); overflow:hidden;
-  border:1px solid var(--border);
-}
-.fill{
-  height:100%; width:0%;
-  background:linear-gradient(45deg,var(--accent1),var(--accent2));
-  border-radius:999px;
-  transition: width 1.2s ease;
-}
-
-/* ===== PROJECTS ===== */
-.project h3{margin:0 0 6px}
-.project p{color:var(--muted); font-size:14px}
-.tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:6px}
-.tag{
-  font-size:12px; padding:4px 8px; border-radius:999px;
-  border:1px solid var(--border); color:var(--muted);
-}
-.links{margin-top:10px}
-.links a{
-  font-size:13px; margin-right:10px; text-decoration:none;
-  color:var(--accent1);
-}
-
-/* ===== CONTACT ===== */
-.contact p{ text-align:center; color:var(--muted) }
-
-/* ===== FOOTER ===== */
-footer{
-  text-align:center; padding:30px 16px; color:var(--muted);
-  border-top:1px solid var(--border);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width:600px){
-  .title{font-size:34px}
-}
-
-/* ===== PHOTO ===== */
-.hero-photo-wrap { display:flex; justify-content:center; margin-bottom:10px; }
-.hero-ring {
-  width:180px; height:180px; border-radius:50%;
-  padding:4px;
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  box-shadow:0 0 0 8px rgba(56,189,248,0.12), 0 16px 48px rgba(0,0,0,0.3);
-  cursor:pointer; position:relative; overflow:hidden;
-  animation:float 4s ease-in-out infinite;
-}
-.hero-photo {
-  width:100%; height:100%; border-radius:50%;
-  object-fit:cover; display:block;
-}
-.photo-overlay {
-  position:absolute; inset:4px; border-radius:50%;
-  background:rgba(56,189,248,0.45);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.8rem; color:#fff;
-  opacity:0; transition:opacity 0.25s;
-}
-.hero-ring:hover .photo-overlay { opacity:1; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-
-/* Lightbox */
-.lightbox {
-  display:none; position:fixed; inset:0; z-index:999;
-  background:rgba(0,0,0,0.85); backdrop-filter:blur(8px);
-  align-items:center; justify-content:center;
-}
-.lightbox.open { display:flex; }
-.lb-img {
-  max-width:min(460px,90vw); max-height:90vh;
-  border-radius:16px; object-fit:cover;
-  box-shadow:0 24px 64px rgba(0,0,0,0.6);
-  animation:zoomIn 0.22s ease;
-}
-.lb-close {
-  position:absolute; top:20px; right:24px;
-  background:#fff; border:none; width:40px; height:40px;
-  border-radius:50%; font-size:1.2rem; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-}
-.lb-close:hover { background:var(--accent1); color:#fff; }
-@keyframes zoomIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
-
-
-/* ===== SKILL CATS ===== */
-.skills-cats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
-}
-.skill-cat {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 22px 18px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.skill-cat:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-.skill-cat-icon {
-  width: 56px; height: 56px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; margin-bottom: 14px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.skill-cat:hover .skill-cat-icon {
-  transform: scale(1.12) rotate(-4deg);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-.skill-cat h3 {
-  font-size: 0.78rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.8px;
-  color: var(--text); margin-bottom: 14px;
-}
-.skill-tags {
-  display: flex; flex-wrap: wrap; gap: 7px;
-}
-.skill-tags span {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: #cbd5e1;
-  padding: 5px 14px; border-radius: 20px;
-  font-size: 0.82rem; font-weight: 500;
-  transition: all 0.18s;
-}
-.skill-tags span:hover {
-  background: var(--accent1);
-  color: #fff;
-  border-color: var(--accent1);
-  transform: translateY(-1px);
-}
-
-
-/* ===== MY LEARNING ===== */
-.learning-overview {
-  display: flex; gap: 24px; justify-content: center;
-  margin-bottom: 36px; flex-wrap: wrap;
-}
-.lo-stat {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid var(--border);
-  border-radius: 12px; padding: 16px 28px;
-  text-align: center; min-width: 130px;
-}
-.lo-num { display: block; font-size: 2rem; font-weight: 800; color: var(--accent1); line-height: 1; }
-.lo-label { font-size: 0.75rem; color: var(--muted); font-weight: 500; margin-top: 4px; display: block; }
-
-.learning-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px; margin-bottom: 28px;
-}
-.lcard {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--border);
-  border-radius: 14px; padding: 24px;
-  display: flex; flex-direction: column; gap: 16px;
-  transition: transform 0.22s, box-shadow 0.22s;
-  border-top: 3px solid transparent;
-}
-.lcard[data-color="indigo"] { border-top-color: #4f46e5; }
-.lcard[data-color="green"]  { border-top-color: #059669; }
-.lcard[data-color="amber"]  { border-top-color: #d97706; }
-.lcard[data-color="blue"]   { border-top-color: #2563eb; }
-.lcard[data-color="rose"]   { border-top-color: #e11d48; }
-.lcard:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
-
-.lcard-top { display: flex; align-items: center; gap: 14px; }
-.lcard-icon { width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-.lcard-top > div { display: flex; flex-direction: column; gap: 4px; }
-.lcard-badge { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 2px 9px; border-radius: 20px; display: inline-block; width: fit-content; }
-.lcard-top h3 { font-size: 0.97rem; font-weight: 700; color: var(--text); margin: 0; }
-
-.lcard-body { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.lcard-col h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-.lcard-col h4 i { color: var(--accent1); }
-.lcard-col ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.lcard-col ul li { font-size: 0.8rem; color: var(--muted); padding-left: 12px; position: relative; line-height: 1.5; }
-.lcard-col ul li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent1); opacity: 0.5; }
-
-.lcard-tags { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 14px; border-top: 1px solid var(--border); }
-.lcard-tags span { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); padding: 4px 11px; border-radius: 20px; font-size: 0.76rem; color: var(--muted); font-weight: 500; }
-.lcard-tags span i { color: var(--accent2); font-size: 0.65rem; }
-
-.learning-impact {
-  display: flex; align-items: flex-start; gap: 20px;
-  background: rgba(56,189,248,0.07);
-  border: 1px solid rgba(56,189,248,0.2);
-  border-radius: 14px; padding: 28px 32px;
-}
-.li-icon { width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0; background: linear-gradient(135deg,var(--accent1),var(--accent2)); color: #020617; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
-.learning-impact h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-.learning-impact p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin: 0; }
-
-@media (max-width: 600px) {
-  .lcard-body { grid-template-columns: 1fr; }
-  .learning-impact { flex-direction: column; }
-}
-
-
-/* ===== PROJECTS ===== */
-.card.project { display:flex; flex-direction:column; gap:10px; }
-.card.project h3 { font-size:1.05rem; font-weight:700; margin:0; }
-.card.project p { font-size:0.85rem; color:var(--muted); line-height:1.65; flex:1; }
-.tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:4px; }
-.tag { background:rgba(255,255,255,0.08); border:1px solid var(--border); color:var(--text); padding:3px 11px; border-radius:20px; font-size:0.78rem; font-weight:500; }
-.links { display:flex; gap:14px; padding-top:10px; border-top:1px solid var(--border); margin-top:auto; }
-.links a { color:var(--accent1); font-size:0.84rem; font-weight:500; display:flex; align-items:center; gap:5px; transition:opacity 0.2s; }
-.links a:hover { opacity:0.75; }
-
-
-/* ===== FORCE DARK IN PDF/PRINT ===== */
-@media print {
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-  body {
-    background: #0d1117 !important;
-    color: #e6edf3 !important;
-  }
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammad Sharique | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <div class="brand">MS</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#learning">My Learning</a>
-      <a href="#contact">Contact</a>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand"><span class="brand-dot"></span> Mohammad Sharique</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#employability">Employability</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="Resume.pdf" download class="nav-resume-btn"><i class="fas fa-download"></i> Resume</a>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
     </div>
-    
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<header>
-  <div class="hero-photo-wrap">
-    <div class="hero-ring" id="openPhoto">
-      <img src="images/IMG_20230814_184323.jpg" alt="Mohammad Sharique" class="hero-photo" />
-      <div class="photo-overlay"><span>&#x26F6;</span></div>
-    </div>
-  </div>
-  <div class="title">Hi, I'm <span>Mohammad Sharique</span></div>
-  <div class="subtitle">Android Developer • Web Developer • Problem Solver</div>
-  <div class="type" id="type"></div>
-  <div class="cta">
-    <a href="resume.pdf" class="btn">Download Resume</a>
-    <a href="#projects" class="btn ghost">View Projects</a>
-  </div>
-</header>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="closeLb">&times;</button>
-  <img src="images/IMG_20230814_184323.jpg" alt="Mohammad Sharique" class="lb-img" />
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <div class="about-desc">
-    <p>
-      I'm <strong>Mohammad Sharique</strong>, a Computer Science student with a strong passion for
-      building software that solves real-world problems. I specialize in Android development and modern web
-      technologies, with hands-on experience in Java, React, Firebase, and algorithm design.
-    </p>
-    <p>
-      Over the past few years I've built projects ranging from a real-time health monitoring Android app
-      integrated with Google Fit API, to a railway network optimizer using Dijkstra's algorithm, to a full
-      compiler simulator built with Lex and Yacc. Each project pushed me to think deeper about system design,
-      performance, and user experience.
-    </p>
-    <p>
-      Beyond coding, I've actively developed my professional skills through coursework in communication,
-      public speaking, group discussions, and interview preparation. I believe great software is built not
-      just with technical skill, but with clear thinking and effective communication.
-    </p>
-    <p>
-      I'm currently seeking internship and placement opportunities where I can contribute meaningfully,
-      keep learning, and grow as a developer. If you have an exciting project or opportunity, I'd love to connect.
-    </p>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="grid">
-
-    <div class="card project" style="border-top:3px solid #10b981">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <div style="width:44px;height:44px;border-radius:10px;background:rgba(16,185,129,0.2);color:#34d399;display:flex;align-items:center;justify-content:center;font-size:1.1rem"><i class="fas fa-heartbeat"></i></div>
-        <span class="tag" style="background:rgba(16,185,129,0.2);color:#34d399;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:3px 10px;border-radius:20px">Android</span>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag"><i class="fas fa-circle-dot"></i> Available for opportunities</div>
+        <h1 class="hero-name">Mohammad<br><span>Sharique</span></h1>
+        <p class="hero-role" id="typeTarget"></p>
+        <p class="hero-sub">Computer Science student building real-world software — from health apps to compilers.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-folder-open"></i> View Projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/yourname" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/mohammad-sharique-a6228737a" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:sharique2803@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
-      <h3>Health Tracker App</h3>
-      <p>An Android app that monitors your health in real time by integrating with the Google Fit API. It tracks daily steps, calories burned, and heart rate, displays live data on a dashboard with visual charts, lets you set personal fitness goals, and generates weekly progress summaries to help you stay on track.</p>
-      <div class="tags">
-        <span class="tag">Android</span><span class="tag">Google Fit API</span><span class="tag">Java</span>
-      </div>
-      <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
-    </div>
-
-    <div class="card project" style="border-top:3px solid #3b82f6">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <div style="width:44px;height:44px;border-radius:10px;background:rgba(59,130,246,0.2);color:#60a5fa;display:flex;align-items:center;justify-content:center;font-size:1.1rem"><i class="fas fa-train"></i></div>
-        <span class="tag" style="background:rgba(59,130,246,0.2);color:#60a5fa;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:3px 10px;border-radius:20px">Algorithm</span>
-      </div>
-      <h3>Railway Network Optimization</h3>
-      <p>A graph-based application that models an entire railway network as a weighted graph and uses Dijkstra's algorithm to compute the shortest and most efficient route between any two stations. Supports dynamic addition of stations and real-time path visualization.</p>
-      <div class="tags">
-        <span class="tag">C++</span><span class="tag">Dijkstra</span><span class="tag">Graph Theory</span>
-      </div>
-      <div class="links"><a href="#">GitHub</a><a href="#">Demo</a></div>
-    </div>
-
-    <div class="card project" style="border-top:3px solid #f59e0b">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <div style="width:44px;height:44px;border-radius:10px;background:rgba(245,158,11,0.2);color:#fbbf24;display:flex;align-items:center;justify-content:center;font-size:1.1rem"><i class="fas fa-microchip"></i></div>
-        <span class="tag" style="background:rgba(245,158,11,0.2);color:#fbbf24;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:3px 10px;border-radius:20px">Systems</span>
-      </div>
-      <h3>Compiler Simulator</h3>
-      <p>A mini compiler that replicates the front-end phases of a real compiler. Uses Lex for lexical analysis to break source code into tokens, and Yacc for syntax parsing to build a parse tree. Outputs token streams, parse trees, and semantic analysis results.</p>
-      <div class="tags">
-        <span class="tag">Lex</span><span class="tag">Yacc</span><span class="tag">C</span>
-      </div>
-      <div class="links"><a href="#">GitHub</a></div>
-    </div>
-
-    <div class="card project" style="border-top:3px solid #8b5cf6">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <div style="width:44px;height:44px;border-radius:10px;background:rgba(139,92,246,0.2);color:#a78bfa;display:flex;align-items:center;justify-content:center;font-size:1.1rem"><i class="fas fa-graduation-cap"></i></div>
-        <span class="tag" style="background:rgba(139,92,246,0.2);color:#a78bfa;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:3px 10px;border-radius:20px">Web App</span>
-      </div>
-      <h3>Learnovora</h3>
-      <p>A fully responsive e-learning platform frontend built with React. Features course browsing, category filtering, enrollment flow, student progress tracking, and a clean modern UI. Supports both dark and light modes.</p>
-      <div class="tags">
-        <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">CSS</span>
-      </div>
-      <div class="links"><a href="#">GitHub</a><a href="#">Live</a></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Technical Skills</h2>
-  <div class="skills-cats">
-
-    <div class="skill-cat">
-      <div class="skill-cat-icon" style="background:rgba(99,102,241,0.2);color:#818cf8"><i class="fas fa-laptop-code"></i></div>
-      <h3>Languages</h3>
-      <div class="skill-tags">
-        <span>C</span><span>C++</span><span>Java</span><span>JavaScript</span><span>Python</span>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring" id="openPhoto">
+          <img src="images/profile.jpg" alt="Mohammad Sharique" class="hero-photo" />
+          <div class="photo-overlay"><i class="fas fa-expand-alt"></i><span>View Photo</span></div>
+        </div>
+        <div class="hero-photo-badge"><i class="fas fa-code"></i> CS Student</div>
       </div>
     </div>
+    <div class="hero-scroll"><span></span></div>
+  </section>
 
-    <div class="skill-cat">
-      <div class="skill-cat-icon" style="background:rgba(16,185,129,0.2);color:#34d399"><i class="fas fa-globe"></i></div>
-      <h3>Web</h3>
-      <div class="skill-tags">
-        <span>HTML5</span><span>CSS3</span><span>React</span>
-      </div>
-    </div>
-
-    <div class="skill-cat">
-      <div class="skill-cat-icon" style="background:rgba(59,130,246,0.2);color:#60a5fa"><i class="fas fa-mobile-alt"></i></div>
-      <h3>Mobile</h3>
-      <div class="skill-tags">
-        <span>Android</span><span>Firebase</span><span>Google Fit API</span>
-      </div>
-    </div>
-
-    <div class="skill-cat">
-      <div class="skill-cat-icon" style="background:rgba(245,158,11,0.2);color:#fbbf24"><i class="fas fa-database"></i></div>
-      <h3>Database</h3>
-      <div class="skill-tags">
-        <span>MongoDB</span><span>Firebase</span>
-      </div>
-    </div>
-
-    <div class="skill-cat">
-      <div class="skill-cat-icon" style="background:rgba(225,29,72,0.2);color:#fb7185"><i class="fas fa-tools"></i></div>
-      <h3>Tools</h3>
-      <div class="skill-tags">
-        <span>Git</span><span>GitHub</span><span>VS Code</span><span>Android Studio</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- MY LEARNING -->
-<section id="learning">
-  <h2>My Learning</h2>
-  <p class="section-desc">Completed "Practical for Employability Skill Enhancement" — building communication, presentation, and interview-readiness skills</p>
-
-  <div class="learning-overview">
-    <div class="lo-stat"><span class="lo-num">5</span><span class="lo-label">Core Modules</span></div>
-    <div class="lo-stat"><span class="lo-num">7+</span><span class="lo-label">Practical Sessions</span></div>
-    <div class="lo-stat"><span class="lo-num">100%</span><span class="lo-label">Completed</span></div>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="closeLightbox"><i class="fas fa-times"></i></button>
+    <img src="images/profile.jpg" alt="Mohammad Sharique" class="lightbox-img" />
   </div>
 
-  <div class="learning-grid">
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="about-avatar">MS</div>
+        <div class="about-stats">
+          <div class="about-stat"><span class="stat-num">4+</span><span class="stat-label">Projects Built</span></div>
+          <div class="about-stat"><span class="stat-num">3+</span><span class="stat-label">Years Coding</span></div>
+          <div class="about-stat"><span class="stat-num">10+</span><span class="stat-label">Technologies</span></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <p>I'm <strong>Mohammad Sharique</strong>, a final-year Computer Science student with a strong passion for building software that solves real-world problems. I specialize in Android development and modern web technologies, with hands-on experience in Java, React, Firebase, and algorithm design.</p>
+        <p>Over the past few years I've built projects ranging from a real-time health monitoring Android app integrated with Google Fit API, to a railway network optimizer using Dijkstra's algorithm, to a full compiler simulator built with Lex and Yacc. Each project pushed me to think deeper about system design, performance, and user experience.</p>
+        <p>Beyond coding, I've actively developed my professional skills through coursework in communication, public speaking, group discussions, and interview preparation. I believe great software is built not just with technical skill, but with clear thinking and effective communication.</p>
+        <p>I'm currently seeking internship and placement opportunities where I can contribute meaningfully, keep learning, and grow as a developer. If you have an exciting project or opportunity, I'd love to connect.</p>
+        <div class="about-expertise">
+          <div class="expertise-item">
+            <div class="expertise-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div><strong>Android Development</strong><span>Java · Firebase · Google APIs</span></div>
+          </div>
+          <div class="expertise-item">
+            <div class="expertise-icon"><i class="fas fa-globe"></i></div>
+            <div><strong>Web Development</strong><span>React · HTML · CSS · JavaScript</span></div>
+          </div>
+          <div class="expertise-item">
+            <div class="expertise-icon"><i class="fas fa-brain"></i></div>
+            <div><strong>Problem Solving</strong><span>DSA · Algorithms · C++</span></div>
+          </div>
+        </div>
+        <div class="about-pills">
+          <span><i class="fas fa-graduation-cap"></i> Computer Science</span>
+          <span><i class="fas fa-map-marker-alt"></i> India</span>
+          <span><i class="fas fa-envelope"></i> sharique2803@gmail.com</span>
+          <span><i class="fab fa-github"></i> github.com/yourname</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="lcard" data-color="indigo">
-      <div class="lcard-top">
-        <div class="lcard-icon" style="background:rgba(99,102,241,0.2);color:#818cf8"><i class="fas fa-user-tie"></i></div>
-        <div>
-          <span class="lcard-badge" style="background:rgba(99,102,241,0.2);color:#818cf8">Module 1</span>
-          <h3>Self-Introduction &amp; Communication</h3>
+  <!-- PROJECTS -->
+  <section id="projects" class="section section-tinted">
+    <div class="section-label">What I've Built</div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">A selection of projects across mobile, web, and systems programming</p>
+    <div class="projects-grid">
+
+      <div class="project-card" data-color="emerald">
+        <div class="project-top">
+          <div class="project-icon emerald"><i class="fas fa-heartbeat"></i></div>
+          <span class="project-badge">Android</span>
+        </div>
+        <h3>Health Tracker App</h3>
+        <p>An Android app that monitors your health in real time by integrating with the Google Fit API. It tracks daily steps, calories burned, and heart rate, displays live data on a dashboard with visual charts, lets you set personal fitness goals, and generates weekly progress summaries to help you stay on track.</p>
+        <ul class="project-features">
+          <li><i class="fas fa-check"></i> Real-time step &amp; calorie tracking</li>
+          <li><i class="fas fa-check"></i> Google Fit API integration</li>
+          <li><i class="fas fa-check"></i> Weekly progress charts &amp; goal setting</li>
+        </ul>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag-emerald">Android</span>
+            <span class="tag-emerald">Google Fit</span>
+            <span class="tag-emerald">Java</span>
+          </div>
+          <div class="project-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Demo"><i class="fas fa-external-link-alt"></i></a>
+          </div>
         </div>
       </div>
-      <div class="lcard-body">
-        <div class="lcard-col">
-          <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
-          <ul>
-            <li>Professional and structured self-introduction</li>
-            <li>Clarity, tone, and confidence while speaking</li>
-            <li>Adapting communication for different audiences</li>
-          </ul>
+
+      <div class="project-card" data-color="blue">
+        <div class="project-top">
+          <div class="project-icon blue"><i class="fas fa-train"></i></div>
+          <span class="project-badge">Algorithm</span>
         </div>
-        <div class="lcard-col">
-          <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
-          <ul>
-            <li>More confident in interviews and introductions</li>
-            <li>Reduced hesitation, improved fluency</li>
-            <li>Better posture and eye contact</li>
-          </ul>
+        <h3>Railway Network Optimization</h3>
+        <p>A graph-based application that models an entire railway network as a weighted graph and uses Dijkstra's algorithm to compute the shortest and most efficient route between any two stations. It supports dynamic addition of stations and routes, and visualizes the network interactively so users can see the optimal path highlighted in real time.</p>
+        <ul class="project-features">
+          <li><i class="fas fa-check"></i> Dijkstra's shortest path algorithm</li>
+          <li><i class="fas fa-check"></i> Interactive graph visualization</li>
+          <li><i class="fas fa-check"></i> Dynamic station &amp; route management</li>
+        </ul>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag-blue">C++</span>
+            <span class="tag-blue">Dijkstra</span>
+            <span class="tag-blue">Graph Theory</span>
+          </div>
+          <div class="project-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Demo"><i class="fas fa-external-link-alt"></i></a>
+          </div>
         </div>
       </div>
-      <div class="lcard-tags">
-        <span><i class="fas fa-check"></i> Self-introduction presentations</span>
-        <span><i class="fas fa-check"></i> Recorded sessions with feedback</span>
+
+      <div class="project-card" data-color="amber">
+        <div class="project-top">
+          <div class="project-icon amber"><i class="fas fa-microchip"></i></div>
+          <span class="project-badge">Systems</span>
+        </div>
+        <h3>Compiler Simulator</h3>
+        <p>A mini compiler that replicates the front-end phases of a real compiler. It uses Lex for lexical analysis to break source code into tokens, and Yacc for syntax parsing to build a parse tree based on a custom grammar. The tool outputs token streams, parse trees, and basic semantic analysis results — demonstrating how programming languages are processed under the hood.</p>
+        <ul class="project-features">
+          <li><i class="fas fa-check"></i> Lexical analysis with Lex</li>
+          <li><i class="fas fa-check"></i> Syntax parsing with Yacc</li>
+          <li><i class="fas fa-check"></i> Token stream &amp; parse tree output</li>
+        </ul>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag-amber">Lex</span>
+            <span class="tag-amber">Yacc</span>
+            <span class="tag-amber">C</span>
+          </div>
+          <div class="project-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-color="violet">
+        <div class="project-top">
+          <div class="project-icon violet"><i class="fas fa-graduation-cap"></i></div>
+          <span class="project-badge">Web App</span>
+        </div>
+        <h3>Learnovora</h3>
+        <p>A fully responsive e-learning platform frontend built with React. It features a course catalogue with category-based filtering, a student enrollment flow, a progress tracking dashboard, and a clean modern UI. The platform supports both dark and light modes and is designed to be intuitive for students and educators alike.</p>
+        <ul class="project-features">
+          <li><i class="fas fa-check"></i> Course listing with category filters</li>
+          <li><i class="fas fa-check"></i> Student progress tracking UI</li>
+          <li><i class="fas fa-check"></i> Responsive dark/light mode</li>
+        </ul>
+        <div class="project-footer">
+          <div class="project-tags">
+            <span class="tag-violet">React</span>
+            <span class="tag-violet">JavaScript</span>
+            <span class="tag-violet">CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Live"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="section-label">What I Know</div>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">Technologies and tools I work with regularly</p>
+    <div class="skills-grid">
+
+      <div class="skill-card sk-indigo">
+        <div class="skill-card-header">
+          <div class="skill-card-icon sk-icon-indigo"><i class="fas fa-laptop-code"></i></div>
+          <h3>Languages</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><i class="fas fa-circle-dot"></i> C</div>
+          <div class="skill-item"><i class="fas fa-circle-dot"></i> C++</div>
+          <div class="skill-item"><i class="fas fa-circle-dot"></i> Java</div>
+          <div class="skill-item"><i class="fas fa-circle-dot"></i> JavaScript</div>
+          <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+        </div>
+      </div>
+
+      <div class="skill-card sk-green">
+        <div class="skill-card-header">
+          <div class="skill-card-icon sk-icon-green"><i class="fas fa-globe"></i></div>
+          <h3>Web</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
+          <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+          <div class="skill-item"><i class="fab fa-react"></i> React</div>
+        </div>
+      </div>
+
+      <div class="skill-card sk-blue">
+        <div class="skill-card-header">
+          <div class="skill-card-icon sk-icon-blue"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Mobile</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><i class="fab fa-android"></i> Android</div>
+          <div class="skill-item"><i class="fas fa-fire"></i> Firebase</div>
+          <div class="skill-item"><i class="fas fa-heartbeat"></i> Google Fit API</div>
+        </div>
+      </div>
+
+      <div class="skill-card sk-amber">
+        <div class="skill-card-header">
+          <div class="skill-card-icon sk-icon-amber"><i class="fas fa-database"></i></div>
+          <h3>Database</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><i class="fas fa-leaf"></i> MongoDB</div>
+          <div class="skill-item"><i class="fas fa-fire"></i> Firebase</div>
+        </div>
+      </div>
+
+      <div class="skill-card sk-rose">
+        <div class="skill-card-header">
+          <div class="skill-card-icon sk-icon-rose"><i class="fas fa-tools"></i></div>
+          <h3>Tools</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+          <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
+          <div class="skill-item"><i class="fas fa-code"></i> VS Code</div>
+          <div class="skill-item"><i class="fab fa-android"></i> Android Studio</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EMPLOYABILITY -->
+  <section id="employability" class="section section-tinted">
+    <div class="section-label">Professional Growth</div>
+    <h2 class="section-title">Employability Skills</h2>
+    <p class="section-sub">Completed "Practical for Employability Skill Enhancement" — building communication, presentation, and interview-readiness skills</p>
+
+    <div class="emp-overview">
+      <div class="emp-overview-text">
+        <p>This course focused on developing essential professional skills required in academic and workplace environments — covering communication, public speaking, writing, group discussions, and interview preparation through practical activities, presentations, and mock sessions.</p>
+      </div>
+      <div class="emp-overview-stats">
+        <div class="emp-stat"><span class="emp-stat-num">5</span><span class="emp-stat-label">Core Modules</span></div>
+        <div class="emp-stat"><span class="emp-stat-num">7+</span><span class="emp-stat-label">Practical Sessions</span></div>
+        <div class="emp-stat"><span class="emp-stat-num">100%</span><span class="emp-stat-label">Completed</span></div>
       </div>
     </div>
 
-    <div class="lcard" data-color="green">
-      <div class="lcard-top">
-        <div class="lcard-icon" style="background:rgba(16,185,129,0.2);color:#34d399"><i class="fas fa-microphone-alt"></i></div>
-        <div>
-          <span class="lcard-badge" style="background:rgba(16,185,129,0.2);color:#34d399">Module 2</span>
-          <h3>Public Speaking &amp; Presentation</h3>
+    <div class="emp-grid">
+      <div class="emp-card">
+        <div class="emp-card-top">
+          <div class="emp-icon" style="background:#eef2ff;color:#4f46e5"><i class="fas fa-user-tie"></i></div>
+          <div class="emp-card-meta">
+            <span class="emp-badge" style="background:#eef2ff;color:#4f46e5">Module 1</span>
+            <h3>Self-Introduction &amp; Communication</h3>
+          </div>
+        </div>
+        <div class="emp-body">
+          <div class="emp-col">
+            <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
+            <ul>
+              <li>Professional and structured self-introduction</li>
+              <li>Clarity, tone, and confidence while speaking</li>
+              <li>Adapting communication for academic vs professional audiences</li>
+            </ul>
+          </div>
+          <div class="emp-col">
+            <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
+            <ul>
+              <li>More confident in interviews and introductions</li>
+              <li>Reduced hesitation, improved fluency</li>
+              <li>Better posture and eye contact</li>
+            </ul>
+          </div>
+        </div>
+        <div class="emp-activities">
+          <span><i class="fas fa-check"></i> Self-introduction presentations</span>
+          <span><i class="fas fa-check"></i> Recorded sessions with feedback</span>
         </div>
       </div>
-      <div class="lcard-body">
-        <div class="lcard-col">
-          <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
-          <ul>
-            <li>Extempore speaking without preparation</li>
-            <li>Structuring thoughts quickly under time constraints</li>
-            <li>Delivering ideas clearly in JAM sessions</li>
-          </ul>
+
+      <div class="emp-card">
+        <div class="emp-card-top">
+          <div class="emp-icon" style="background:#ecfdf5;color:#059669"><i class="fas fa-microphone-alt"></i></div>
+          <div class="emp-card-meta">
+            <span class="emp-badge" style="background:#ecfdf5;color:#059669">Module 2</span>
+            <h3>Public Speaking &amp; Presentation</h3>
+          </div>
         </div>
-        <div class="lcard-col">
-          <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
-          <ul>
-            <li>Increased confidence in spontaneous speaking</li>
-            <li>Improved ability to organize thoughts quickly</li>
-            <li>Reduced stage fear and hesitation</li>
-          </ul>
+        <div class="emp-body">
+          <div class="emp-col">
+            <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
+            <ul>
+              <li>Extempore speaking without preparation</li>
+              <li>Structuring thoughts quickly under time constraints</li>
+              <li>Delivering ideas clearly in JAM sessions</li>
+            </ul>
+          </div>
+          <div class="emp-col">
+            <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
+            <ul>
+              <li>Increased confidence in spontaneous speaking</li>
+              <li>Improved ability to organize thoughts quickly</li>
+              <li>Reduced stage fear and hesitation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="emp-activities">
+          <span><i class="fas fa-check"></i> Extempore sessions</span>
+          <span><i class="fas fa-check"></i> JAM activities</span>
+          <span><i class="fas fa-check"></i> Product pitch presentations</span>
+          <span><i class="fas fa-check"></i> Storytelling exercises</span>
         </div>
       </div>
-      <div class="lcard-tags">
-        <span><i class="fas fa-check"></i> Extempore sessions</span>
-        <span><i class="fas fa-check"></i> JAM activities</span>
-        <span><i class="fas fa-check"></i> Product pitch presentations</span>
-        <span><i class="fas fa-check"></i> Storytelling exercises</span>
+
+      <div class="emp-card">
+        <div class="emp-card-top">
+          <div class="emp-icon" style="background:#fffbeb;color:#d97706"><i class="fas fa-pen-nib"></i></div>
+          <div class="emp-card-meta">
+            <span class="emp-badge" style="background:#fffbeb;color:#d97706">Module 3</span>
+            <h3>Effective Writing Skills</h3>
+          </div>
+        </div>
+        <div class="emp-body">
+          <div class="emp-col">
+            <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
+            <ul>
+              <li>Essay structure: Introduction, Body, Conclusion</li>
+              <li>Clear, concise, and meaningful sentences</li>
+              <li>Grammar, vocabulary, and logical flow</li>
+            </ul>
+          </div>
+          <div class="emp-col">
+            <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
+            <ul>
+              <li>Improved clarity and structure in writing</li>
+              <li>Enhanced ability to express ideas logically</li>
+              <li>Better grammar and sentence construction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="emp-activities">
+          <span><i class="fas fa-check"></i> Essay writing practice</span>
+          <span><i class="fas fa-check"></i> Sample essay analysis</span>
+          <span><i class="fas fa-check"></i> Writing exercises</span>
+        </div>
+      </div>
+
+      <div class="emp-card">
+        <div class="emp-card-top">
+          <div class="emp-icon" style="background:#eff6ff;color:#2563eb"><i class="fas fa-users"></i></div>
+          <div class="emp-card-meta">
+            <span class="emp-badge" style="background:#eff6ff;color:#2563eb">Module 4</span>
+            <h3>Group Discussion Skills</h3>
+          </div>
+        </div>
+        <div class="emp-body">
+          <div class="emp-col">
+            <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
+            <ul>
+              <li>Verbal and non-verbal communication in groups</li>
+              <li>How to initiate and support arguments logically</li>
+              <li>Teamwork, active listening, and respecting opinions</li>
+            </ul>
+          </div>
+          <div class="emp-col">
+            <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
+            <ul>
+              <li>Improved confidence speaking in a group</li>
+              <li>Better listening and response skills</li>
+              <li>Learned to present ideas clearly and respectfully</li>
+            </ul>
+          </div>
+        </div>
+        <div class="emp-activities">
+          <span><i class="fas fa-check"></i> Multiple GD sessions</span>
+          <span><i class="fas fa-check"></i> Peer &amp; faculty evaluation</span>
+          <span><i class="fas fa-check"></i> Sample GD analysis</span>
+        </div>
+      </div>
+
+      <div class="emp-card">
+        <div class="emp-card-top">
+          <div class="emp-icon" style="background:#fff1f2;color:#e11d48"><i class="fas fa-briefcase"></i></div>
+          <div class="emp-card-meta">
+            <span class="emp-badge" style="background:#fff1f2;color:#e11d48">Module 5</span>
+            <h3>Interview Skills &amp; Preparation</h3>
+          </div>
+        </div>
+        <div class="emp-body">
+          <div class="emp-col">
+            <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
+            <ul>
+              <li>Interview structure: HR Round &amp; Technical Round</li>
+              <li>Common questions and strategies to answer them</li>
+              <li>Do's and Don'ts — communication, confidence, attitude</li>
+            </ul>
+          </div>
+          <div class="emp-col">
+            <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
+            <ul>
+              <li>Increased confidence in interview situations</li>
+              <li>Improved ability to answer questions clearly</li>
+              <li>Better understanding of professional behavior</li>
+            </ul>
+          </div>
+        </div>
+        <div class="emp-activities">
+          <span><i class="fas fa-check"></i> Mock interviews (individual &amp; group)</span>
+          <span><i class="fas fa-check"></i> Faculty &amp; peer feedback</span>
+          <span><i class="fas fa-check"></i> FAQ practice sessions</span>
+        </div>
       </div>
     </div>
 
-    <div class="lcard" data-color="amber">
-      <div class="lcard-top">
-        <div class="lcard-icon" style="background:rgba(245,158,11,0.2);color:#fbbf24"><i class="fas fa-pen-nib"></i></div>
-        <div>
-          <span class="lcard-badge" style="background:rgba(245,158,11,0.2);color:#fbbf24">Module 3</span>
-          <h3>Effective Writing Skills</h3>
-        </div>
-      </div>
-      <div class="lcard-body">
-        <div class="lcard-col">
-          <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
-          <ul>
-            <li>Essay structure: Introduction, Body, Conclusion</li>
-            <li>Clear, concise, and meaningful sentences</li>
-            <li>Grammar, vocabulary, and logical flow</li>
-          </ul>
-        </div>
-        <div class="lcard-col">
-          <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
-          <ul>
-            <li>Improved clarity and structure in writing</li>
-            <li>Enhanced ability to express ideas logically</li>
-            <li>Better grammar and sentence construction</li>
-          </ul>
-        </div>
-      </div>
-      <div class="lcard-tags">
-        <span><i class="fas fa-check"></i> Essay writing practice</span>
-        <span><i class="fas fa-check"></i> Sample essay analysis</span>
-        <span><i class="fas fa-check"></i> Writing exercises</span>
+    <div class="emp-impact">
+      <div class="emp-impact-icon"><i class="fas fa-chart-line"></i></div>
+      <div>
+        <h3>Overall Impact</h3>
+        <p>Through this course I developed strong communication, presentation, writing, and interpersonal skills. I gained practical experience handling real-world scenarios — interviews, group discussions, and public speaking — which significantly improved my confidence and readiness for professional environments.</p>
       </div>
     </div>
+  </section>
 
-    <div class="lcard" data-color="blue">
-      <div class="lcard-top">
-        <div class="lcard-icon" style="background:rgba(59,130,246,0.2);color:#60a5fa"><i class="fas fa-users"></i></div>
-        <div>
-          <span class="lcard-badge" style="background:rgba(59,130,246,0.2);color:#60a5fa">Module 4</span>
-          <h3>Group Discussion Skills</h3>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-label">Let's Talk</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">Open to internships, placements, and collaborations</p>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <p>I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi — my inbox is always open.</p>
+        <div class="contact-items">
+          <a href="mailto:sharique2803@gmail.com" class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div><strong>Email</strong><span>sharique2803@gmail.com</span></div>
+          </a>
+          <a href="https://github.com/yourname" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-item-icon"><i class="fab fa-github"></i></div>
+            <div><strong>GitHub</strong><span>github.com/yourname</span></div>
+          </a>
+          <a href="https://linkedin.com/in/mohammad-sharique-a6228737a" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-item-icon"><i class="fab fa-linkedin"></i></div>
+            <div><strong>LinkedIn</strong><span>linkedin.com/in/mohammad-sharique-a6228737a</span></div>
+          </a>
         </div>
       </div>
-      <div class="lcard-body">
-        <div class="lcard-col">
-          <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
-          <ul>
-            <li>Verbal and non-verbal communication in groups</li>
-            <li>How to initiate and support arguments logically</li>
-            <li>Teamwork, active listening, and respecting opinions</li>
-          </ul>
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="John Doe" />
         </div>
-        <div class="lcard-col">
-          <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
-          <ul>
-            <li>Improved confidence speaking in a group</li>
-            <li>Better listening and response skills</li>
-            <li>Learned to present ideas clearly and respectfully</li>
-          </ul>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="john@example.com" />
         </div>
-      </div>
-      <div class="lcard-tags">
-        <span><i class="fas fa-check"></i> Multiple GD sessions</span>
-        <span><i class="fas fa-check"></i> Peer &amp; faculty evaluation</span>
-        <span><i class="fas fa-check"></i> Sample GD analysis</span>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">MS</span>
+      <p>Designed &amp; Built by <strong>Mohammad Sharique</strong> &copy; 2025</p>
+      <div class="footer-socials">
+        <a href="https://github.com/yourname" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/mohammad-sharique-a6228737a" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:sharique2803@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
+  </footer>
 
-    <div class="lcard" data-color="rose">
-      <div class="lcard-top">
-        <div class="lcard-icon" style="background:rgba(225,29,72,0.2);color:#fb7185"><i class="fas fa-briefcase"></i></div>
-        <div>
-          <span class="lcard-badge" style="background:rgba(225,29,72,0.2);color:#fb7185">Module 5</span>
-          <h3>Interview Skills &amp; Preparation</h3>
-        </div>
-      </div>
-      <div class="lcard-body">
-        <div class="lcard-col">
-          <h4><i class="fas fa-lightbulb"></i> What I Learned</h4>
-          <ul>
-            <li>Interview structure: HR Round &amp; Technical Round</li>
-            <li>Common questions and strategies to answer them</li>
-            <li>Do's and Don'ts — communication, confidence, attitude</li>
-          </ul>
-        </div>
-        <div class="lcard-col">
-          <h4><i class="fas fa-rocket"></i> Improvement Achieved</h4>
-          <ul>
-            <li>Increased confidence in interview situations</li>
-            <li>Improved ability to answer questions clearly</li>
-            <li>Better understanding of professional behavior</li>
-          </ul>
-        </div>
-      </div>
-      <div class="lcard-tags">
-        <span><i class="fas fa-check"></i> Mock interviews (individual &amp; group)</span>
-        <span><i class="fas fa-check"></i> Faculty &amp; peer feedback</span>
-        <span><i class="fas fa-check"></i> FAQ practice sessions</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="learning-impact">
-    <div class="li-icon"><i class="fas fa-chart-line"></i></div>
-    <div>
-      <h3>Overall Impact</h3>
-      <p>Through this course I developed strong communication, presentation, writing, and interpersonal skills. I gained practical experience handling real-world scenarios — interviews, group discussions, and public speaking — which significantly improved my confidence and readiness for professional environments.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>
-    Email: sharique2803@gmail.com<br/>
-    GitHub: github.com/sharique2803-coder<br/>
-    LinkedIn: linkedin.com/in/mohammad-sharique-a6228737a
-  </p>
-</section>
-
-<footer>
-  © 2026 Mohammad Sharique
-</footer>
-
-<script>
-
-
-/* ===== TYPING EFFECT ===== */
-const roles = [
-  "Android Developer",
-  "Web Developer",
-  "Problem Solver",
-  "Cloud Learner"
-];
-let i=0, j=0, current="", isDeleting=false;
-const el = document.getElementById('type');
-
-function typeLoop(){
-  current = roles[i];
-  if(!isDeleting){
-    el.textContent = current.slice(0, ++j);
-    if(j === current.length){ isDeleting = true; setTimeout(typeLoop, 900); return; }
-  } else {
-    el.textContent = current.slice(0, --j);
-    if(j === 0){ isDeleting = false; i = (i+1) % roles.length; }
-  }
-  setTimeout(typeLoop, isDeleting ? 35 : 70);
-}
-typeLoop();
-
-/* ===== SKILL BARS ANIMATION ON VIEW ===== */
-const fills = document.querySelectorAll('.fill');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const w = e.target.getAttribute('data-fill');
-      e.target.style.width = w + '%';
-      observer.unobserve(e.target);
-    }
-  });
-},{threshold:0.6});
-fills.forEach(f=>observer.observe(f));
-
-/* ===== ACTIVE NAV LINK ===== */
-const links = document.querySelectorAll('.nav-links a');
-const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
-window.addEventListener('scroll', ()=>{
-  const y = window.scrollY + 120;
-  sections.forEach((sec, idx)=>{
-    if(sec && sec.offsetTop <= y && sec.offsetTop + sec.offsetHeight > y){
-      links.forEach(l=>l.classList.remove('active'));
-      links[idx].classList.add('active');
-    }
-  });
-});
-
-/* Lightbox */
-const lb = document.getElementById('lightbox');
-document.getElementById('openPhoto').addEventListener('click', () => lb.classList.add('open'));
-document.getElementById('closeLb').addEventListener('click', () => lb.classList.remove('open'));
-lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') lb.classList.remove('open'); });
-
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
